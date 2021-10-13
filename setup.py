@@ -10,7 +10,7 @@ setup(
     description="A small package for dvc ml pipeline Loan Prediction",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="",
+    url="https://github.com/Rishav-hub/Loan_Prediction.git",
     author_email="9930046@gmail.com",
     packages=["src"],
     python_requires=">=3.7",
