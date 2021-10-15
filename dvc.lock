@@ -4,27 +4,27 @@ stages:
     cmd: python src/stage_01_load_and_save.py -c config/config.yaml
     deps:
     - path: config\config.yaml
-      md5: 7dfa1baf044582ce56ebc74ca08ba8c8
-      size: 259
+      md5: b5c9b48bf5deeda422a56fcbac6014bd
+      size: 314
     - path: src\stage_01_load_and_save.py
-      md5: 01a9b1b7f48980d96e4bf79cad275f76
-      size: 1570
+      md5: fdff45fd7e644b8c5a24df8a827ea7e0
+      size: 1561
     - path: src\utils\all_utils.py
       md5: c37dff7d0468e0debda77d8e61776d84
       size: 918
     outs:
     - path: artifacts\raw_local_dir\data.csv
-      md5: c86f5fefb91fc59019e5263f90381346
-      size: 21940
+      md5: ec75c505d6d95b87e6ac3b09fb18d617
+      size: 20710
   split_data:
     cmd: python src/stage_02_split_data.py -c config/config.yaml -p params.yaml
     deps:
     - path: artifacts\raw_local_dir\data.csv
-      md5: c86f5fefb91fc59019e5263f90381346
-      size: 21940
+      md5: ec75c505d6d95b87e6ac3b09fb18d617
+      size: 20710
     - path: config\config.yaml
-      md5: 7dfa1baf044582ce56ebc74ca08ba8c8
-      size: 259
+      md5: b5c9b48bf5deeda422a56fcbac6014bd
+      size: 314
     - path: src\stage_02_split_data.py
       md5: 2b8064b1edbc460a0dbddb69973fd9ef
       size: 2363
@@ -37,8 +37,33 @@ stages:
         base.test_size: 0.2
     outs:
     - path: artifacts\split_data_dir\test.csv
-      md5: 5de139a4a8e354e82e589e2175f5d26a
-      size: 4517
+      md5: a1b038fe9ff7c1797f9790584900be5a
+      size: 4269
     - path: artifacts\split_data_dir\train.csv
-      md5: 12ab8f58f745799c0e7bae5c20f35c66
-      size: 17579
+      md5: cd1d7b4b4557ee385f303034744b4458
+      size: 16595
+  training:
+    cmd: python src/stage_03_train.py -c config/config.yaml -p params.yaml
+    deps:
+    - path: config\config.yaml
+      md5: b5c9b48bf5deeda422a56fcbac6014bd
+      size: 314
+    - path: src\stage_03_train.py
+      md5: 322b1c7f136ac2e19ffde485fa174a92
+      size: 3233
+    - path: src\utils\all_utils.py
+      md5: c37dff7d0468e0debda77d8e61776d84
+      size: 918
+    params:
+      params.yaml:
+        base.random_state: 42
+        model_params.random_forest.max_depth: 3
+        model_params.random_forest.max_features: sqrt
+        model_params.random_forest.min_samples_leaf: 1
+        model_params.random_forest.min_samples_split: 2
+        model_params.random_forest.model_name: RandomForestClassifier
+        model_params.random_forest.n_estimators: 100
+    outs:
+    - path: artifacts\model_dir\Random_Forest.pkl
+      md5: 756393438c04bf03463651e9e14448c9
+      size: 140178

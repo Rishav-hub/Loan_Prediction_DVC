@@ -14,7 +14,7 @@ def get_data(config_path):
     config = read_yaml(config_path)
 
     remote_data_path = config["data_source"]
-    df = pd.read_csv(remote_data_path, sep=";")
+    df = pd.read_csv(remote_data_path)
 
     # save dataset in the local directory
     # create path to directory: artifacts/raw_local_dir/data.csv

@@ -9,3 +9,5 @@ artifacts:
   train: train.csv
   test: test.csv
   
+  model_dir: model_dir
+  model_file: Random_Forest.pkl
