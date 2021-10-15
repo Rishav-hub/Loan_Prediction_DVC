@@ -38,3 +38,4 @@ stages:
       - model_params.random_forest.min_samples_leaf
     outs:
       - artifacts\model_dir\Random_Forest.pkl
+      - artifacts\model_dir\XGBoost.pkl

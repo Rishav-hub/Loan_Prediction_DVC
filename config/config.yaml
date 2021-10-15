@@ -10,4 +10,5 @@ artifacts:
   test: test.csv
   
   model_dir: model_dir
-  model_file: Random_Forest.pkl
+  model_file_random_forest: Random_Forest.pkl
+  model_file_xgboost: XGBoost.pkl
