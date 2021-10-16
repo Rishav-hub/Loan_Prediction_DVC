@@ -4,8 +4,8 @@ stages:
     cmd: python src/stage_01_load_and_save.py -c config/config.yaml
     deps:
     - path: config\config.yaml
-      md5: b5c9b48bf5deeda422a56fcbac6014bd
-      size: 314
+      md5: 7c18f778aed77899df28638a143900ea
+      size: 451
     - path: src\stage_01_load_and_save.py
       md5: fdff45fd7e644b8c5a24df8a827ea7e0
       size: 1561
@@ -23,8 +23,8 @@ stages:
       md5: ec75c505d6d95b87e6ac3b09fb18d617
       size: 20710
     - path: config\config.yaml
-      md5: b5c9b48bf5deeda422a56fcbac6014bd
-      size: 314
+      md5: 7c18f778aed77899df28638a143900ea
+      size: 451
     - path: src\stage_02_split_data.py
       md5: 2b8064b1edbc460a0dbddb69973fd9ef
       size: 2363
@@ -46,11 +46,11 @@ stages:
     cmd: python src/stage_03_train.py -c config/config.yaml -p params.yaml
     deps:
     - path: config\config.yaml
-      md5: b5c9b48bf5deeda422a56fcbac6014bd
-      size: 314
+      md5: 7c18f778aed77899df28638a143900ea
+      size: 451
     - path: src\stage_03_train.py
-      md5: 322b1c7f136ac2e19ffde485fa174a92
-      size: 3233
+      md5: 33352263b439f87621c20f5780adc543
+      size: 4956
     - path: src\utils\all_utils.py
       md5: c37dff7d0468e0debda77d8e61776d84
       size: 918
@@ -67,3 +67,34 @@ stages:
     - path: artifacts\model_dir\Random_Forest.pkl
       md5: 756393438c04bf03463651e9e14448c9
       size: 140178
+    - path: artifacts\model_dir\XGBoost.pkl
+      md5: 3e05ef3ad05363303a10aa15f74ad012
+      size: 115474
+  evaluate:
+    cmd: python src/stage_04_evaluate.py -c config/config.yaml -p params.yaml
+    deps:
+    - path: artifacts\model_dir\Random_Forest.pkl
+      md5: 756393438c04bf03463651e9e14448c9
+      size: 140178
+    - path: artifacts\model_dir\XGBoost.pkl
+      md5: 3e05ef3ad05363303a10aa15f74ad012
+      size: 115474
+    - path: artifacts\split_data_dir\test.csv
+      md5: a1b038fe9ff7c1797f9790584900be5a
+      size: 4269
+    - path: config\config.yaml
+      md5: 7c18f778aed77899df28638a143900ea
+      size: 451
+    - path: src\stage_04_evaluate.py
+      md5: f9004dd41bcd2150dc4423c8d405c759
+      size: 5215
+    - path: src\utils\all_utils.py
+      md5: c37dff7d0468e0debda77d8e61776d84
+      size: 918
+    outs:
+    - path: artifacts\report_dir\rf_score.json
+      md5: d4a98995d9931e10056c5a3e3175d1d0
+      size: 107
+    - path: artifacts\report_dir\xgb_score.json
+      md5: 745f147a509d80851c9fd21570feec6d
+      size: 107
