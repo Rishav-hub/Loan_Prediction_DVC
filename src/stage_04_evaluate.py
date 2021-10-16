@@ -129,8 +129,8 @@ def evaluate(config_path, params_path):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--config", help="Path to the config file", default="config\config.yaml")
-    parser.add_argument("--params", help="Path to the params file", default="params.yaml")
+    parser.add_argument("--config", "-c",help="Path to the config file", default="config\config.yaml")
+    parser.add_argument("--params", "-p", help="Path to the params file", default="params.yaml")
     args = parser.parse_args()
 
     try:

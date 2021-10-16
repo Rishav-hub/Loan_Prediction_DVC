@@ -39,3 +39,16 @@ stages:
     outs:
       - artifacts\model_dir\Random_Forest.pkl
       - artifacts\model_dir\XGBoost.pkl
+  
+  evaluate:
+    cmd: python src/stage_04_evaluate.py -c config/config.yaml -p params.yaml
+    deps:
+      - src\stage_04_evaluate.py
+      - src\utils\all_utils.py
+      - config\config.yaml
+      - artifacts\model_dir\Random_Forest.pkl
+      - artifacts\model_dir\XGBoost.pkl
+      - artifacts\split_data_dir\test.csv
+    outs:
+      - artifacts\report_dir\rf_score.json
+      - artifacts\report_dir\xgb_score.json
