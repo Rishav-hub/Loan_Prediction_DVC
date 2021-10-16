@@ -12,3 +12,8 @@ artifacts:
   model_dir: model_dir
   model_file_random_forest: Random_Forest.pkl
   model_file_xgboost: XGBoost.pkl
+
+  report_dir: report_dir
+  rf_score: rf_score.json
+  xgb_score: xgb_score.json
+  
