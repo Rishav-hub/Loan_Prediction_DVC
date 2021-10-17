@@ -1,5 +1,7 @@
 # Loan Prediction Pipeline using DVC
 
+![Image](https://datahack-prod.s3.ap-south-1.amazonaws.com/__sized__/contest_cover/loanpre-thumbnail-1200x1200.png)
+
 ### Problem Statement -:
 
 Given features of various people who had taken loan earlier train a model to predict the Loan Status as Yes or N0.
