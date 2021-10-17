@@ -1,5 +1,9 @@
 # Loan Prediction Pipeline using DVC
 
+### Problem Statement -:
+
+Given features of various people who had taken loan earlier train a model to predict the Loan Status as Yes or N0.
+
 ### Data Source -: [Analytic Vidhya Loan Prediction](https://datahack.analyticsvidhya.com/contest/practice-problem-loan-prediction-iii/)
 
 
