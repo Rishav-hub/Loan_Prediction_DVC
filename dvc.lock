@@ -116,10 +116,9 @@ stages:
     - path: src\app.py
       md5: d9e7b2781e613ecedaf9ea9307644c00
       size: 4569
-    - path: src\utils\all_utils.py
-      md5: c37dff7d0468e0debda77d8e61776d84
-      size: 918
-    outs:
     - path: src\templates\home.html
       md5: ee7d3f980482d60605e672b476da5f3f
       size: 7075
+    - path: src\utils\all_utils.py
+      md5: c37dff7d0468e0debda77d8e61776d84
+      size: 918
