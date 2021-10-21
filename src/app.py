@@ -21,7 +21,7 @@ CORS(app)
 @app.route('/', methods=['GET'])
 @cross_origin()
 def index():
-    return render_template('predict.html')
+    return render_template('home.html')
 
 @app.route('/train', methods=['POST', 'GET'])
 @cross_origin()
@@ -114,13 +114,13 @@ def train_function():
             else:
                 text = 'Rejected'
 
-            return render_template('predict.html', prediction_text=f"Your Loan Status is {text}")
+            return render_template('home.html', prediction_text=f"Your Loan Status is {text}")
  
         except Exception as e:
             logging.error("Error in giving Input!!!!")
             logging.error(e)
     else:
-        return render_template('predict.html')
+        return render_template('home.html')
 
 def open_browser():
     webbrowser.open_new('http://127.0.0.1:8000/')

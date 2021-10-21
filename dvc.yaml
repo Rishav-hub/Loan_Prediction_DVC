@@ -52,3 +52,15 @@ stages:
     outs:
       - artifacts\report_dir\rf_score.json
       - artifacts\report_dir\xgb_score.json
+  
+  predict:
+    cmd: python src/app.py
+    deps:
+      - src\app.py
+      - src\utils\all_utils.py
+      - config\config.yaml
+      - artifacts\model_dir\Random_Forest.pkl
+      - artifacts\model_dir\XGBoost.pkl
+      - artifacts\split_data_dir\test.csv
+      - src\templates\home.html
+

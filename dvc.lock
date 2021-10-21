@@ -98,3 +98,28 @@ stages:
     - path: artifacts\report_dir\xgb_score.json
       md5: 745f147a509d80851c9fd21570feec6d
       size: 107
+  predict:
+    cmd: python src/app.py
+    deps:
+    - path: artifacts\model_dir\Random_Forest.pkl
+      md5: 756393438c04bf03463651e9e14448c9
+      size: 140178
+    - path: artifacts\model_dir\XGBoost.pkl
+      md5: 3e05ef3ad05363303a10aa15f74ad012
+      size: 115474
+    - path: artifacts\split_data_dir\test.csv
+      md5: a1b038fe9ff7c1797f9790584900be5a
+      size: 4269
+    - path: config\config.yaml
+      md5: 7c18f778aed77899df28638a143900ea
+      size: 451
+    - path: src\app.py
+      md5: d9e7b2781e613ecedaf9ea9307644c00
+      size: 4569
+    - path: src\utils\all_utils.py
+      md5: c37dff7d0468e0debda77d8e61776d84
+      size: 918
+    outs:
+    - path: src\templates\home.html
+      md5: ee7d3f980482d60605e672b476da5f3f
+      size: 7075
