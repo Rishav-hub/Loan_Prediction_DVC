@@ -26,6 +26,7 @@ stages:
     cmd: python src/stage_03_train.py -c config/config.yaml -p params.yaml
     deps:
       - src\stage_03_train.py
+      - src\stage_02_split_data.py
       - src\utils\all_utils.py
       - config\config.yaml
     params:
@@ -45,6 +46,7 @@ stages:
     deps:
       - src\stage_04_evaluate.py
       - src\utils\all_utils.py
+      - src\stage_03_train.py
       - config\config.yaml
       - artifacts\model_dir\Random_Forest.pkl
       - artifacts\model_dir\XGBoost.pkl
@@ -53,14 +55,14 @@ stages:
       - artifacts\report_dir\rf_score.json
       - artifacts\report_dir\xgb_score.json
   
-  predict:
-    cmd: python src/app.py
-    deps:
-      - src\app.py
-      - src\utils\all_utils.py
-      - config\config.yaml
-      - artifacts\model_dir\Random_Forest.pkl
-      - artifacts\model_dir\XGBoost.pkl
-      - artifacts\split_data_dir\test.csv
-      - src\templates\home.html
+  # predict:
+  #   cmd: python app.py
+  #   deps:
+  #     - app.py
+  #     - src\utils\all_utils.py
+  #     - config\config.yaml
+  #     - artifacts\model_dir\Random_Forest.pkl
+  #     - artifacts\model_dir\XGBoost.pkl
+  #     - artifacts\split_data_dir\test.csv
+  #     - templates\home.html
 

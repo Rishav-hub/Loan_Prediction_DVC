@@ -48,6 +48,9 @@ stages:
     - path: config\config.yaml
       md5: 7c18f778aed77899df28638a143900ea
       size: 451
+    - path: src\stage_02_split_data.py
+      md5: 2b8064b1edbc460a0dbddb69973fd9ef
+      size: 2363
     - path: src\stage_03_train.py
       md5: 33352263b439f87621c20f5780adc543
       size: 4956
@@ -85,6 +88,9 @@ stages:
     - path: config\config.yaml
       md5: 7c18f778aed77899df28638a143900ea
       size: 451
+    - path: src\stage_03_train.py
+      md5: 33352263b439f87621c20f5780adc543
+      size: 4956
     - path: src\stage_04_evaluate.py
       md5: f9004dd41bcd2150dc4423c8d405c759
       size: 5215
